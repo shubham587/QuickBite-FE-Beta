@@ -1,16 +1,26 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import {createBrowserRouter, RouterProvider} from "react-router-dom"
+import DefaultLayout from './Layout/DefaultLayout'
+import HomeComp from './components/pageComponents/HomeComponent'
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <DefaultLayout />,
+    children: [
+      {
+        index: true,
+        element: <HomeComp />
+      }
+    ]
+  }
+])
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <h1 className="text-5xl font-bold underline">
-        Hello world!
-      </h1>
+      <RouterProvider router={router}/>
     </>
   )
 }
