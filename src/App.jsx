@@ -4,7 +4,8 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom"
 import DefaultLayout from './Layout/DefaultLayout.jsx'
 import HomeComp from  "./components/pageComponents/HomeComponent/index.jsx"
 import CategoryComp from './components/pageComponents/CategoryComponent/index.jsx'
-import CatalogueComp from './components/pageComponents/catalogueComponent/index.jsx'
+import CatalogueComp, {loader as CatalogueLoader} from './components/pageComponents/catalogueComponent/index.jsx'
+
 
 const router = createBrowserRouter([
   {
@@ -17,17 +18,19 @@ const router = createBrowserRouter([
       },
       {
         path: 'category',
-        element: <CategoryComp />
+        element: <CategoryComp />,
       },
       {
         path: "catalogue",
-        element: <CatalogueComp />
+        element: <CatalogueComp />,
+        loader: CatalogueLoader
       }
     ]
   }
 ])
 
 function App() {
+
 
   return (
     <>
